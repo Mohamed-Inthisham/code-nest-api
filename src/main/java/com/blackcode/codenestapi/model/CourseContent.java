@@ -3,22 +3,14 @@ package com.blackcode.codenestapi.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.net.URL;
-import java.time.LocalDate;
-
 @Data
 @Entity
-public class Roadmap {
+public class CourseContent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate date;
-    private String rmTitle;
+    private String cTitle;
     private String description;
-    private String mentorName;
-    private URL image;
     @ManyToOne
-    private Mentor mentor;
-
-
+    private Course course;
 }

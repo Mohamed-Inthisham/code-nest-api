@@ -5,20 +5,21 @@ import lombok.Data;
 
 import java.net.URL;
 import java.time.LocalDate;
-
 @Data
 @Entity
-public class Roadmap {
+public class Internship {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate date;
-    private String rmTitle;
-    private String description;
-    private String mentorName;
-    private URL image;
+    private String fullName;
+    private String email;
+    private String contact;
+    private URL cv;
+
     @ManyToOne
-    private Mentor mentor;
-
-
+    private Company company;
+    @ManyToOne
+    private Student student;
 }
+
