@@ -9,8 +9,8 @@ public class Resources {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String rTitle;
-    private String desciption;
+    private String resTitle;
+    private String description;
     @ManyToOne
     private Mentor mentor;
 }
