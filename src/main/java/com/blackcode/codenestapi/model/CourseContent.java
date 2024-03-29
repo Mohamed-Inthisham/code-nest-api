@@ -12,7 +12,7 @@ public class CourseContent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate date;
-    private String cTitle;
+    private String c_title;
     private String description;
     @ManyToOne
     private Course course;

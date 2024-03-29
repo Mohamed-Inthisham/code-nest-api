@@ -8,6 +8,6 @@ import java.time.LocalDate;
 public class CourseContentDTO {
     private Long id;
     private LocalDate date;
-    private String cTitle;
+    private String c_title;
     private String description;
 }
