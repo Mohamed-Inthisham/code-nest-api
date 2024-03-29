@@ -13,6 +13,7 @@ public class CourseContent {
     private Long id;
     private LocalDate date;
     private String c_title;
+    private String header;
     private String description;
     @ManyToOne
     private Course course;
