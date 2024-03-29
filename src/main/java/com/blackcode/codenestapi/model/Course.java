@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -13,9 +14,10 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cTitle;
+    private LocalDate date;
     private String cDescription;
     private String companyName;
-    private URL image;
+    private String image;
     @JoinTable(name = "student_courses",joinColumns = @JoinColumn(name = "courseId"),
     inverseJoinColumns = @JoinColumn(name = "studentId"))
     @ManyToMany
@@ -24,7 +26,7 @@ public class Course {
     private List<Quiz> quizzes;
     @OneToMany(mappedBy = "course")
     private List<Certificate> certificates;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Company company;
     @OneToMany(mappedBy = "course")
     private List<CourseContent> courseContents;

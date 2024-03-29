@@ -1,24 +1,16 @@
-package com.blackcode.codenestapi.model;
+package com.blackcode.codenestapi.controller.response;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
 import java.net.URL;
 import java.time.LocalDate;
 
 @Data
-@Entity
-public class Roadmap {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class RoadmapResponse {
     private Long id;
     private LocalDate date;
     private String rmTitle;
     private String description;
     private String mentorName;
     private String image;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Mentor mentor;
-
-
 }
