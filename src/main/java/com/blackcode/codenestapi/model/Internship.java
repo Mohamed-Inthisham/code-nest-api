@@ -15,7 +15,7 @@ public class Internship {
     private String fullName;
     private String email;
     private String contact;
-    private URL cv;
+    private String cv;
 
     @ManyToOne
     private Company company;
