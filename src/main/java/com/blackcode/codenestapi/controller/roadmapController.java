@@ -23,7 +23,7 @@ public class roadmapController {
         public List<RoadmapResponse> getAllRoadmaps(){
         return roadmapService.getAll();
     }
-    @DeleteMapping("/roadmap/{id}")
+    @DeleteMapping("/roadmaps/{id}")
     public void delete(@PathVariable ("id")Long id){
         roadmapService.delete(id);
     }
