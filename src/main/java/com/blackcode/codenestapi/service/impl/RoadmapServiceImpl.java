@@ -19,6 +19,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -56,4 +57,22 @@ public class RoadmapServiceImpl implements RoadmapService {
         roadmapRepository.deleteById(id);
 
     }
+
+    @Override
+    public RoadmapResponse update(Long id, RoadmapDTO roadmapDTO, MultipartFile file) throws IOException {
+        Optional<Roadmap> optionalRoadmap = roadmapRepository.findById(id);
+        if (optionalRoadmap.isPresent()) {
+            Roadmap roadmap = optionalRoadmap.get();
+            modelMapper.map(roadmapDTO, roadmap);
+            roadmap.setDate(LocalDate.now());
+            String originalFilename = file.getOriginalFilename();
+            Path fileNameAndPath = Paths.get(uploadDirectory, originalFilename);
+            Files.write(fileNameAndPath, file.getBytes());
+            roadmap.setImage(originalFilename);
+            roadmapRepository.save(roadmap);
+            return modelMapper.map(roadmap, RoadmapResponse.class);
+        }
+        return null;
+    }
+
 }
