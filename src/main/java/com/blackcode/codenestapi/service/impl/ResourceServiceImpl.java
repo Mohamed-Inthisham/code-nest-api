@@ -5,6 +5,7 @@ import com.blackcode.codenestapi.dto.ResourceDTO;
 import com.blackcode.codenestapi.model.Resources;
 import com.blackcode.codenestapi.repository.ResourceRepository;
 import com.blackcode.codenestapi.service.ResourceService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,20 @@ public class ResourceServiceImpl implements ResourceService {
     @Override
     public void delete(Long id) {
         resourceRepository.deleteById(id);
+    }
+
+    @Override
+    public ResourceResponse update(Long id, ResourceDTO resourceDTO) {
+
+        Optional<Resources> optionalResources=resourceRepository.findById(id);
+        if(optionalResources.isPresent()){
+            Resources resources=optionalResources.get();
+            modelMapper.map(resourceDTO,resources);
+            resources.setId(id);
+            resourceRepository.save(resources);
+            return modelMapper.map(resources,ResourceResponse.class);
+        }
+
+        return null;
     }
 }

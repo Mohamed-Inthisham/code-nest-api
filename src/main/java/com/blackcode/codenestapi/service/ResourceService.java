@@ -13,4 +13,6 @@ public interface ResourceService {
     List<ResourceResponse> getAll();
 
     void delete(Long id);
+
+    ResourceResponse update(Long id, ResourceDTO resourceDTO);
 }

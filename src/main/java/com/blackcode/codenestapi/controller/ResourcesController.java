@@ -14,6 +14,7 @@ public class ResourcesController {
     private ResourceService resourceService;
     @PostMapping("/resources")
     public ResourceResponse create(@RequestBody ResourceDTO resourceDTO){
+
         return resourceService.create(resourceDTO);
     }
     @GetMapping("/resources")
@@ -23,6 +24,10 @@ public class ResourcesController {
     @DeleteMapping("/resources/{id}")
     public void delete(@PathVariable ("id")Long id){
         resourceService.delete(id);
+    }
+    @PutMapping("/resources/{id}")
+    public ResourceResponse update(@PathVariable ("id")Long id,@RequestBody ResourceDTO resourceDTO){
+        return resourceService.update(id,resourceDTO);
     }
 }
 
