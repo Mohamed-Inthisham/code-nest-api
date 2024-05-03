@@ -15,4 +15,6 @@ public interface RoadmapService {
     List<RoadmapResponse> getAll();
 
     void delete(Long id);
+
+    RoadmapResponse update(Long id, RoadmapDTO roadmapDTO, MultipartFile file) throws IOException;
 }

@@ -27,5 +27,10 @@ public class roadmapController {
     public void delete(@PathVariable ("id")Long id){
         roadmapService.delete(id);
     }
+    @PutMapping("/roadmaps/{id}")
+    public RoadmapResponse update(@PathVariable("id") Long id, @ModelAttribute RoadmapDTO roadmapDTO, @RequestParam("image") MultipartFile file) throws IOException {
+        return roadmapService.update(id, roadmapDTO, file);
+    }
+
 }
 
