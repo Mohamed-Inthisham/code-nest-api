@@ -17,9 +17,6 @@ public class Internship {
     private String contact;
     private String cv;
 
-    @ManyToOne
-    private Company company;
-    @ManyToOne
-    private Student student;
+
 }
 

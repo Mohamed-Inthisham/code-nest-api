@@ -19,9 +19,6 @@ public class Mentor {
     private String areaOfExpertise;
     private String yearsOfRelatedExperience;
     private String position;
-    @OneToMany(mappedBy = "mentor")
-    private List<Roadmap> roadmaps;
-    @OneToMany(mappedBy = "mentor")
-    private List<Resources>  resources;
+
 }
 
