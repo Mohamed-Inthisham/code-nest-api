@@ -15,4 +15,5 @@ public interface InternshipService {
     List<InternshipResponse> getAll();
 
     void delete(Long id);
+
 }

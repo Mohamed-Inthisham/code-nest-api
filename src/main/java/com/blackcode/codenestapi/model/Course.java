@@ -13,10 +13,10 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String cTitle;
+    private String title;
     private LocalDate date;
-    private String cDescription;
-    private String companyName;
+    private String description;
+    private String comp;
     private String image;
     @JoinTable(name = "student_courses",joinColumns = @JoinColumn(name = "courseId"),
     inverseJoinColumns = @JoinColumn(name = "studentId"))
