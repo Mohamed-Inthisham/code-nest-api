@@ -29,6 +29,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseResponse create(CourseDTO courseDTO, MultipartFile file) throws IOException {
+        System.out.println(courseDTO.getComp()+"gugbs");
         Course course =modelMapper.map(courseDTO, Course.class);
         course.setDate(LocalDate.now());
         String originalFilename = file.getOriginalFilename();

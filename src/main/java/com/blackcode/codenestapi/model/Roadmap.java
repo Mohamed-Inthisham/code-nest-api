@@ -17,8 +17,6 @@ public class Roadmap {
     private String description;
     private String mentorName;
     private String image;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Mentor mentor;
 
 
 }

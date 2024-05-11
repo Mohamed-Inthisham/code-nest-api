@@ -16,11 +16,6 @@ public class Student {
     private String email;
     private String contact;
     private String password;
-    @ManyToMany(mappedBy = "students")
-    private List<Course> courseList;
-    @OneToMany(mappedBy = "student")
-    private List<Certificate> certificates;
-    @OneToMany(mappedBy = "student")
-    private List<Internship> internships ;
+
 
 }

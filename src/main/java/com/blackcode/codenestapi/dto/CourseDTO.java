@@ -8,9 +8,9 @@ import java.time.LocalDate;
 @Data
 public class CourseDTO {
     private Long id;
-    private String cTitle;
+    private String title;
     private LocalDate date;
-    private String cDescription;
-    private String companyName;
+    private String description;
+    private String comp;
     private MultipartFile image;
 }

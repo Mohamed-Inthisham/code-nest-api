@@ -18,16 +18,6 @@ public class Course {
     private String description;
     private String comp;
     private String image;
-    @JoinTable(name = "student_courses",joinColumns = @JoinColumn(name = "courseId"),
-    inverseJoinColumns = @JoinColumn(name = "studentId"))
-    @ManyToMany
-    private List<Student> students;
-    @OneToMany(mappedBy = "course")
-    private List<Quiz> quizzes;
-    @OneToMany(mappedBy = "course")
-    private List<Certificate> certificates;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Company company;
-    @OneToMany(mappedBy = "course")
-    private List<CourseContent> courseContents;
+
+
 }
